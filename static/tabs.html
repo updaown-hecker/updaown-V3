@@ -7,7 +7,8 @@
     <title id="t">Home</title>
     <link rel="stylesheet" href="/assets/css/global.css?v=6">
     <link rel="stylesheet" href="/assets/css/t.css?v=02">
-    <script src="assets/js/f.js"></script></head>
+    <script src="assets/js/f.js"></script>
+    </head>
   <body id="no">
     <nav class="nav" id="right-side-nav">
       <ul id="tab-list"><li data-tab-id="1" draggable="true" class="active"><span class="t">Home</span><button class="close-tab">✕</button></li></ul>
@@ -19,13 +20,14 @@
       <div class="nav-container">
         <div class="nav-left">
           <button title="Home Page" id="home-page" class="nav-button" onclick="Home()">
-            <i class="fa-solid fa-house"></i>
+            <?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M3 9.5L12 4L21 9.5" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M19 13V19.4C19 19.7314 18.7314 20 18.4 20H5.6C5.26863 20 5 19.7314 5 19.4V13" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M13.6667 17H10.3333V14.6667H8V11.3333H10.3333V9H13.6667V11.3333H16V14.6667H13.6667V17Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </button>
           <button title="Back Arrow" class="nav-button" onclick="goBack()">
             <i class="fa-solid fa-arrow-left"></i>
+ <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-arrow-left"><path d="M5 12h14M5 12l6-6M5 12l6 6"/></svg>
           </button>
           <button title="Forward Arrow" class="nav-button" onclick="goForward()">
-            <i class="fa-solid fa-arrow-right"></i>
+ <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-arrow-right"><path d="M5 12h14M5 12l6-6M5 12l6 6"/></svg>
           </button>
           <button title="Reload" onclick="reload()" class="nav-button">
             <i class="fa-solid fa-rotate-right"></i>
@@ -36,7 +38,9 @@
         </div>
         <div class="nav-right">
           <button title="Fullscreen" id="fullscreen-button" class="nav-button nav-btn-right" onclick="FS()">
-            <i class="fa-solid fa-expand"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-fullscreen">
+              <path d="M4 4h10v2H6v8H4V4zM44 4v10h-2V6h-8V4h10zM4 44V34h2v8h8v2H4zM44 44H34v-2h8v-8h2v10z"/>
+            </svg>            
           </button>
           <button title="Window Popout" id="popout-button" class="nav-button nav-btn-right" onclick="popout()">
             <i class="fa-solid fa-up-right-from-square"></i>
@@ -45,7 +49,7 @@
             <i class="fa-solid fa-code"></i>
           </button>
           <button title="Tabs" id="tabs-button" class="nav-button nav-btn-right">
-            <i class="fa-solid fa-magnifying-glass-minus"></i>
+            <?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M22 8H15.5M9 4V8H15.5M15.5 8V4" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2 17.7143V6.28571C2 5.02335 2.99492 4 4.22222 4H19.7778C21.0051 4 22 5.02335 22 6.28571V17.7143C22 18.9767 21.0051 20 19.7778 20H4.22222C2.99492 20 2 18.9767 2 17.7143Z" stroke="#000000" stroke-width="1.5"></path></svg>
           </button>
         </div>
       </div>

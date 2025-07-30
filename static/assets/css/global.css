@@ -76,3 +76,35 @@ body {
    position: absolute;
    z-index: 99;
 }
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .main {
+    padding: 10px;
+  }
+
+  .center-glass {
+    padding: 10px;
+  }
+
+  .glass-title {
+    width: 90%;
+    padding: 10px 20px;
+  }
+
+  .search-bar-glass {
+    width: 90%;
+  }
+
+  .glass-socials {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .glass-social {
+    margin: 5px 0;
+  }
+}
