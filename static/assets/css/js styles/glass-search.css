@@ -1,0 +1,53 @@
+/* Glassmorphism futuristic search bar styles */
+.search-bar-glass {
+  display: flex;
+  align-items: center;
+  background: rgba(44, 62, 80, 0.35);
+  border-radius: 2em;
+  box-shadow: 0 8px 32px 0 rgba(31, 41, 59, 0.37);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(76, 201, 240, 0.18);
+  padding: 0.5em 2em;
+  width: 100%;
+  max-width: 600px;
+  margin: 2em auto 1em auto;
+  position: relative;
+}
+.search-bar-glass input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #e0e7ef;
+  font-size: 1.3rem;
+  flex: 1;
+  padding: 0.7em 1em;
+}
+.search-bar-glass input::placeholder {
+  color: #b3c2d6;
+  opacity: 0.8;
+}
+.search-bar-glass .search-icon {
+  width: 2em;
+  height: 2em;
+  margin-right: 1em;
+  fill: #76e5fc;
+  opacity: 0.85;
+}
+.search-bar-glass .mic-icon {
+  width: 2em;
+  height: 2em;
+  margin-left: 1em;
+  fill: #76e5fc;
+  opacity: 0.85;
+  cursor: pointer;
+  transition: fill 0.2s;
+}
+.search-bar-glass .mic-icon:hover {
+  fill: #4f46e5;
+}
+@media (max-width: 700px) {
+  .search-bar-glass {
+    max-width: 98vw;
+    padding: 0.5em 1em;
+  }
+}

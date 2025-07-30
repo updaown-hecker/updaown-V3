@@ -1,0 +1,96 @@
+body {
+  background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+  min-height: 100vh;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  color: #e0e7ef;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.background-spheres {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+.sphere {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.7;
+}
+.sphere1 {
+  width: 220px; height: 220px;
+  left: 8vw; top: 18vh;
+  background: radial-gradient(circle at 40% 40%, #26d0ce 0%, #1a2980 100%);
+}
+.sphere2 {
+  width: 120px; height: 120px;
+  left: 60vw; top: 10vh;
+  background: radial-gradient(circle at 60% 60%, #76e5fc 0%, #4f46e5 100%);
+}
+.sphere3 {
+  width: 80px; height: 80px;
+  left: 75vw; top: 40vh;
+  background: radial-gradient(circle at 60% 60%, #26d0ce 0%, #1a2980 100%);
+}
+.center-glass {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+}
+.glass-title {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  color: #fff;
+  margin-bottom: 2.2em;
+  text-align: center;
+  text-shadow: 0 8px 32px rgba(76, 201, 240, 0.25);
+}
+.glass-desc {
+  max-width: 600px;
+  margin: 2em auto 1em auto;
+  text-align: center;
+  color: #e0e7ef;
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+.glass-footer {
+  text-align: center;
+  color: #b3c2d6;
+  font-size: 1rem;
+  margin: 2em 0 1em 0;
+  letter-spacing: 0.12em;
+}
+.glass-socials {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin: 1.5em 0 0.5em 0;
+}
+.glass-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px; height: 48px;
+  background: rgba(44, 62, 80, 0.35);
+  border-radius: 50%;
+  box-shadow: 0 4px 16px 0 rgba(31, 41, 59, 0.25);
+  transition: background 0.2s, transform 0.2s;
+}
+.glass-social:hover {
+  background: rgba(76, 201, 240, 0.18);
+  transform: scale(1.08);
+}
+@media (max-width: 700px) {
+  .glass-title { font-size: 2rem; }
+  .glass-desc { font-size: 1rem; }
+  .glass-footer { font-size: 0.9rem; }
+  .glass-socials { gap: 1em; }
+}

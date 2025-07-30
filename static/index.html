@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="referrer" content="no-referrer" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="tab-title">Home</title>
+    <link rel="icon" href="assets/favicon/google.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/global.css?v=6" />
+    <link rel="stylesheet" href="/assets/css/h.css?v=2" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/js styles/futuristic.css">
+    <link rel="stylesheet" href="assets/css/js styles/glass-search.css">
+    <link rel="stylesheet" href="assets/css/js styles/glass-page.css">
+    <link rel="stylesheet" href="assets/css/js styles/spheres.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6840529569014734"
+     crossorigin="anonymous"></script>
+  </head>
+  <body onload="SplashT">
+    <div class="spheres-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: 0;">
+      <!-- Spheres will be dynamically added by JavaScript -->
+    </div>
+    <div class="center-glass" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+      <h1 class="glass-title" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-radius: 16px; padding: 16px 32px; text-align: center; width: 100%; max-width: 600px;">
+        Updaown V3
+      </h1>
+      <form id="fs" method="POST" class="search-bar-glass">
+        <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke="#76e5fc" stroke-width="2" fill="none"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="#76e5fc" stroke-width="2"/></svg>
+        <input id="is" placeholder="Search..." type="text" autocomplete="off">
+        <svg class="mic-icon" viewBox="0 0 24 24"><rect x="9" y="4" width="6" height="12" rx="3" fill="#76e5fc"/><line x1="12" y1="16" x2="12" y2="20" stroke="#76e5fc" stroke-width="2"/><line x1="8" y1="20" x2="16" y2="20" stroke="#76e5fc" stroke-width="2"/></svg>
+      </form>
+      <div class="glass-desc">
+        <p id="desc"></p>
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            const b64 = "VGhpcyBpcyB1cGRhb3duIFYzISBUaGUgbmV3ZXN0IHdlYnNpdGUgdGhhdCBpcyBib3RoIGNsZWFuIGFuZCBoYXMgb25lIG9mIHRoZSBiZXN0IHdvcmtpbmcgcHJveHkgdW5ibG9ja2VycyBvdXQgdGhlcmUuIFdlIGhvcGUgeW91IGVuam95IHRoZSBzaXRlIGFzIHlvdSB1c2UgaXQu";
+            document.getElementById("desc").textContent = atob(b64);
+          });
+        </script>
+      </div>
+      <div class="glass-footer">GLASS MORPHISM | EPS TEMPLATE</div>
+      <div class="glass-socials">
+        <a href="#" class="glass-social"><svg width="32" height="32" fill="#fff" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg></a>
+        <a href="#" class="glass-social"><svg width="32" height="32" fill="#fff" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg></a>
+        <a href="#" class="glass-social"><svg width="32" height="32" fill="#fff" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg></a>
+      </div>
+    </div>
+    <!-- Load particles.js core BEFORE any custom particles code -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Core logic -->
+    <script src="assets/js/index.js?v=46"></script>
+    <script src="/assets/js/home.js?v=26"></script>
+    <script src="./assets/ultra/bundle.js?v=9-30-2024"></script>
+    <script src="./assets/ultra/config.js?v=9-30-2024"></script>
+    <script src="assets/js/fa.js"></script>
+    <script src="assets/js/float-spheres.js"></script>
+  </body>
+</html>
