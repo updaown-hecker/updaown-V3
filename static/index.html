@@ -15,6 +15,82 @@
     <link rel="stylesheet" href="assets/css/js styles/glass-search.css">
         <link rel="stylesheet" href="assets/css/js styles/glass-page.css">
     <link rel="stylesheet" href="assets/css/js styles/interactive-background.css">
+    <style>
+      /* Make all text non-selectable by default */
+      .center-glass * {
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
+      
+      /* Allow search input to be selectable */
+      .main-search {
+        user-select: text !important;
+        -webkit-user-select: text !important;
+        -moz-user-select: text !important;
+        -ms-user-select: text !important;
+      }
+      
+      /* Search button styling */
+      .search-icon-btn, .mic-btn {
+        background: none;
+        border: none;
+        padding: 8px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #76e5fc;
+      }
+      
+      .search-icon-btn:hover, .mic-btn:hover {
+        background: rgba(118, 229, 252, 0.1);
+        transform: scale(1.05);
+      }
+      
+      .search-icon-btn:active, .mic-btn:active {
+        transform: scale(0.95);
+      }
+      
+      /* Search button click animation */
+      .search-icon-btn.clicked {
+        animation: searchClick 0.3s ease;
+      }
+      
+      @keyframes searchClick {
+        0% { transform: scale(1); }
+        50% { transform: scale(0.9); }
+        100% { transform: scale(1); }
+      }
+      
+      /* Voice search button specific styling */
+      .mic-btn {
+        margin-left: 4px;
+      }
+      
+      /* Search icon button specific styling */
+      .search-icon-btn {
+        margin-right: 4px;
+      }
+      
+      /* Mobile touch improvements */
+      @media (max-width: 768px) {
+        .search-icon-btn, .mic-btn {
+          min-height: 44px;
+          min-width: 44px;
+          padding: 12px;
+        }
+      }
+      
+      /* Focus states for accessibility */
+      .search-icon-btn:focus, .mic-btn:focus {
+        outline: 2px solid #76e5fc;
+        outline-offset: 2px;
+      }
+    </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6840529569014734"
      crossorigin="anonymous"></script>
   </head>
@@ -25,9 +101,13 @@
         Updaown V3
       </h1>
       <form id="fs" method="POST" class="search-bar-glass">
-        <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke="#76e5fc" stroke-width="2" fill="none"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="#76e5fc" stroke-width="2"/></svg>
+        <button type="button" id="search-icon-btn" class="search-icon-btn" title="Search" aria-label="Search">
+          <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke="#76e5fc" stroke-width="2" fill="none"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="#76e5fc" stroke-width="2"/></svg>
+        </button>
         <input id="is" class="main-search" placeholder="Search..." type="text" autocomplete="on">
-        <svg class="mic-icon" viewBox="0 0 24 24"><rect x="9" y="4" width="6" height="12" rx="3" fill="#76e5fc"/><line x1="12" y1="16" x2="12" y2="20" stroke="#76e5fc" stroke-width="2"/><line x1="8" y1="20" x2="16" y2="20" stroke="#76e5fc" stroke-width="2"/></svg>
+        <button type="button" id="mic-btn" class="mic-btn" title="Voice Search" aria-label="Voice Search">
+          <svg class="mic-icon" viewBox="0 0 24 24"><rect x="9" y="4" width="6" height="12" rx="3" fill="#76e5fc"/><line x1="12" y1="16" x2="12" y2="20" stroke="#76e5fc" stroke-width="2"/><line x1="8" y1="20" x2="16" y2="20" stroke="#76e5fc" stroke-width="2"/></svg>
+        </button>
       </form>
       <div class="glass-desc">
         <p id="desc"></p>
