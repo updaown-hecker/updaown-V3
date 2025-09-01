@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/css/js styles/glass-page.css">
     <link rel="stylesheet" href="assets/css/tabs-glass.css">
     <script src="assets/js/f.js"></script>
-    <script src="title-questions.js"></script>
+    <script src="assets/js/title-questions.js"></script>
     <style>
         .lg-header {
             position: fixed;
@@ -23,14 +23,15 @@
             width: 95%;
             max-width: 1200px;
             height: 60px;
-            background: rgba(23, 23, 23, 0.6);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            background: rgba(23, 23, 23, 0.25);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-radius: 0 0 30px 30px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
             z-index: 1000;
             transition: all 0.3s ease;
             pointer-events: auto;
+            border: 1px solid rgba(255, 255, 255, 0.03);
         }
 
         @keyframes float {
@@ -70,13 +71,43 @@
             color: #fff;
             border: none;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
+            position: relative;
+            overflow: hidden;
         }
 
         .lg-nav-btn:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(0, 136, 255, 0.15);
             transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(0, 157, 255, 0.4);
+        }
+        
+        .lg-nav-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 8px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(0, 157, 255, 0.4), rgba(0, 89, 255, 0.2));
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .lg-nav-btn:hover::after {
+            opacity: 1;
         }
 
         .lg-nav-btn.active {
@@ -85,7 +116,8 @@
         }
 
         .lg-effect-1:hover {
-            box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+            box-shadow: 0 0 15px rgba(0, 183, 255, 0.6);
+            transform: translateY(-2px) scale(1.02);
         }
 
         /* Adjust content area for floating header */
