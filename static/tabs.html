@@ -6,16 +6,15 @@
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="t">Updaown V3 - Browser</title>
-    <link rel="icon" href="assets/favicon/google.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title id="t">Loading...</title>
+    <link rel="icon" href="assets/media/favicon/google.ico">
     <link rel="stylesheet" href="/assets/css/global.css?v=6">
     <link rel="stylesheet" href="/assets/css/t.css?v=02">
     <link rel="stylesheet" href="assets/css/js styles/glass-page.css">
     <link rel="stylesheet" href="assets/css/tabs-glass.css">
     <script src="assets/js/f.js"></script>
+    <script src="title-questions.js"></script>
     <style>
-        /* Floating Bubble Header Styles */
         .lg-header {
             position: fixed;
             top: 0;
@@ -24,12 +23,14 @@
             width: 95%;
             max-width: 1200px;
             height: 60px;
-            background: rgba(23, 23, 23, 0.8);
+            background: rgba(23, 23, 23, 0.6);
             backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border-radius: 0 0 30px 30px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             z-index: 1000;
             transition: all 0.3s ease;
+            pointer-events: auto;
         }
 
         @keyframes float {
@@ -89,7 +90,8 @@
 
         /* Adjust content area for floating header */
         .content-area {
-            margin-top: 0;
+            margin: 0;
+            padding: 0;
             min-height: 100vh;
         }
         
@@ -97,11 +99,15 @@
         #iframe {
             width: 100%;
             height: 100vh;
-            border: none;
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
+            right: 0;
+            bottom: 0;
             z-index: 0;
+            margin: 0;
+            padding: 0;
+            border: none;
         }
         
         /* Header toggle button */
@@ -150,11 +156,29 @@
         
         /* Make sure the iframe takes full screen */
         .main-content, .frame-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             width: 100%;
-            height: 100vh;
+            height: 100%;
             padding: 0;
             margin: 0;
+            border: none;
             overflow: hidden;
+        }
+        
+        /* Ensure iframe takes full container */
+        #iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            margin: 0;
+            padding: 0;
         }
     </style>
 </head>
@@ -291,7 +315,7 @@
                     data-tab-id="1" 
                     class="content-frame active" 
                     src="/"
-                    frameborder="0"
+                    style="width: 100%; height: 100%; border: none; margin: 0; padding: 0; position: absolute; top: 0; left: 0;"
                     marginwidth="0"
                     marginheight="0">
             </iframe>
