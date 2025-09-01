@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" id="tab-favicon" href="favicon.png" />
+  <title id="t">Settings</title>
+  <link rel="stylesheet" id="global" href="/assets/css/global.css?v=6" />
+  <link rel="stylesheet" href="/assets/css/container.css?v=2" />
+  <link rel="stylesheet" href="/assets/css/settings.css?v=06" />
+  <link rel="stylesheet" href="assets/css/js styles/glass-page.css">
+  <link rel="stylesheet" href="assets/css/js styles/interactive-background.css">
+  <script src="assets/js/003.js?v=000"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+      min-height: 100vh;
+    }
+    
+    /* Liquid Glass UI - Basic styles */
+    .lg-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    /* Floating Bubble Header Styles */
+    @keyframes float {
+      0% {
+        transform: translate(-50%, 0);
+        box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.3);
+      }
+      50% {
+        transform: translate(-50%, -6px);
+        box-shadow: 0 15px 25px 0px rgba(0, 0, 0, 0.2);
+      }
+      100% {
+        transform: translate(-50%, 0);
+        box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    .lg-header {
+      background: rgba(26, 26, 46, 0.35);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 10px 20px;
+      position: fixed;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1200px;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      animation: float 6s ease-in-out infinite;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    .lg-header-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .lg-nav-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lg-nav-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 12px;
+      color: #fff;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .lg-nav-btn:hover {
+      background: rgba(118, 229, 252, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .lg-nav-btn.lg-effect-1:hover {
+      background: rgba(118, 229, 252, 0.3);
+    }
+
+    .lg-nav-btn.active {
+      background: rgba(118, 229, 252, 0.25);
+      border: 1px solid rgba(118, 229, 252, 0.5);
+    }
+
+    /* Content area styles */
+    .content-area {
+      margin-top: 90px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .glass-title {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 15px;
+      text-align: center;
+      margin: 20px auto;
+      max-width: 600px;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Settings specific styles */
+    .settings-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    
+    .settings-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .settings-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: calc(50% - 30px);
+      min-width: 300px;
+      flex-grow: 1;
+    }
+
+    .settings-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .settings-card h3 {
+      color: #fff;
+      margin-top: 0;
+      font-weight: 600;
+    }
+
+    .settings-card p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 20px;
+    }
+
+    .key-form {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: #fff;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+    }
+
+    .key-button {
+      background: rgba(118, 229, 252, 0.2);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+    }
+
+    .key-button:hover {
+      background: rgba(118, 229, 252, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Switch styling */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider-round {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider-round:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider-round {
+      background-color: rgba(118, 229, 252, 0.5);
+    }
+
+    input:checked + .slider-round:before {
+      transform: translateX(26px);
+    }
+
+    #ab-settings {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 992px) {
+      .settings-card {
+        width: calc(100% - 40px);
+        min-width: 250px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-btn span {
+        display: none;
+      }
+      
+      .settings-card {
+        padding: 15px;
+      }
+      
+      .content-area {
+        padding: 10px;
+      }
+      
+      .settings-container {
+        padding: 0 10px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .modern-header {
+        padding: 8px 10px;
+      }
+      
+      .nav-group {
+        gap: 5px;
+      }
+      
+      .glass-title {
+        font-size: 18px;
+        padding: 10px;
+        margin: 10px auto;
+      }
+      
+      #ab-settings {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      
+      .key-form, .key-button {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Floating Bubble Header -->
+  <header class="lg-header">
+    <div class="lg-header-container">
+      <!-- Left Navigation Group -->
+      <div class="lg-nav-group left-nav">
+        <a href="/" title="Home Page" id="home-page" class="lg-nav-btn lg-effect-1">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9,22 9,12 15,12 15,22"/>
+          </svg>
+          <span>Home</span>
+        </a>
+      </div>
+      
+      <!-- Right Navigation Group -->
+      <div class="lg-nav-group right-nav">
+        <a href="/a" title="Games" class="lg-nav-btn lg-effect-1">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          <span>Games</span>
+        </a>
+        <a href="/b" title="Apps" class="lg-nav-btn lg-effect-1">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          <span>Apps</span>
+        </a>
+        <a href="/rx" title="Tabs" class="lg-nav-btn lg-effect-1">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"></path>
+            <line x1="6" y1="9" x2="18" y2="9"></line>
+          </svg>
+          <span>Tabs</span>
+        </a>
+        <a href="/c" title="Settings" class="lg-nav-btn lg-effect-1 active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span>Settings</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="content-area">
+    <h1 class="glass-title">Settings</h1>
+    <style>
+        .settings-container {
+          padding: 0 20px 20px 20px;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        .settings-row {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 15px;
+        }
+        .settings-card {
+          margin-bottom: 15px;
+          background-color: rgba(0, 0, 0, 0.5);
+          border-radius: 10px;
+          padding: 15px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .settings-card h3 {
+          margin-top: 0;
+        }
+        @media (max-width: 1200px) {
+          .settings-row {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+        @media (max-width: 900px) {
+          .settings-row {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 600px) {
+          .settings-row {
+            grid-template-columns: 1fr;
+          }
+        }
+      </style>
+     <div class="settings-container">
+      <div class="settings-row">
+      <div class="settings-card">
+        <h3>About:Blank</h3>
+        <p>
+          Cloak the site in an about:blank page and toggle about:blank on
+          startup (enabled by default)
+        </p>
+        <div id="ab-settings">
+          <div id="ab-settings-container">
+            <label class="switch">
+              <input type="checkbox" id="ab-settings-switch" class="slider-checkbox" onchange="toggleAB()" />
+              <span class="slider-round"></span>
+            </label>
+          </div>
+          <button onclick="AB()" class="key-button">Open Popup</button>
+        </div>
+      </div>
+      <div class="settings-card">
+        <h3>Set Panic Key</h3>
+        <p>
+          Quick open another site with one press. Used for redirects when
+          about:blank is opened. For multiple key strokes separate them with a
+          comma. Ex. "A,B,C"
+        </p>
+        <input type="text" id="eventKeyInput" placeholder="Panic Keys (comma separated)" class="key-form" />
+        <input class="key-form" placeholder="Panic Link" type="text" id="linkInput" value />
+        <button class="key-button" value="Save" onclick="saveEventKey()">
+          Save
+        </button>
+      </div>
+      <div class="settings-card">
+        <h3>&#84;&#97;&#98;&#32;&#67;&#108;&#111;&#97;&#107;&#101;&#114;</h3>
+        <p>Change the title and icon of the page.</p>
+        <select id="dropdown" onchange="handleDropdownChange(this)">
+          <option value="Classroom">Default</option>
+          <option value="Clever">Clever</option>
+          <option value="Canvas">Canvas</option>
+          <option value="Edpuzzle">Edpuzzle</option>
+          <option value="Google">Google</option>
+          <option value="Google Meet">Google Meet</option>
+          <option value="Classroom">Google Classroom</option>
+          <option value="Drive">Google Drive</option>
+          <option value="Google Docs">Google Docs</option>
+          <option value="Google Slides">Google Slides</option>
+          <option value="Gmail">Gmail</option>
+          <option value="Khan">Khan Academy</option>
+          <option value="Campus">Infinite Campus</option>
+          <option value="IXL">IXL</option>
+          <option value="LinkIt">LinkIt!</option>
+          <option value="Schoology">Schoology</option>
+          <option value="i-Ready Math">i-Ready Math</option>
+          <option value="i-Ready Reading">i-Ready Reading</option>
+          <option value="ClassLink Login">ClassLink Login</option>
+          <option value="Wikipedia">Wikipedia</option>
+          <option value="Britannica">Britannica</option>
+          <option value="Ducksters">Ducksters</option>
+          <option value="Minga">Minga</option>
+          <option value="i-Ready Learning Games">
+            i-Ready Learning Games
+          </option>
+          <option value="NoRedInk Home">NoRedInk Home</option>
+          <option value="Newsela Binder">Newsela Binder</option>
+          <option value="Newsela Assignments">Newsela Assignments</option>
+          <option value="Newsela Home">Newsela Home</option>
+          <option value="PowerSchool Sign In">PowerSchool Sign In</option>
+          <option value="PowerSchool Grades and Attendance">
+            PowerSchool Grades and Attendance
+          </option>
+          <option value="PowerSchool Teacher Comments">
+            PowerSchool Teacher Comments
+          </option>
+          <option value="PowerSchool Standards Grades">
+            PowerSchool Standards Grades
+          </option>
+          <option value="PowerSchool Attendance">
+            PowerSchool Attendance
+          </option>
+          <option value="Nearpod">Nearpod</option>
+          <option value="StudentVUE">StudentVUE</option>
+          <option value="Quizlet Home">Quizlet Home</option>
+          <option value="Google Forms Locked Mode">
+            Google Forms - Locked Mode
+          </option>
+          <option value="DeltaMath">DeltaMath</option>
+          <option value="Kami">Kami</option>
+          <option value="GoGuardian Admin Restricted">
+            GoGuardian Admin Block
+          </option>
+          <option value="GoGuardian Teacher Block">
+            GoGuardian Teacher Block
+          </option>
+          <option value="World History Encyclopedia">
+            World History Encyclopedia
+          </option>
+          <option value="Big Ideas Math">Big Ideas Math</option>
+          <option value="Big Ideas Math Assignment Player">
+            Big Ideas Math Assignment Player
+          </option>
+          <option value="Savvas Realize">Savvas Realize</option>
+          <option value="SmartPass">SmartPass</option>
+          <option value="World Book Online - Super Home">
+            World Book Online (Super Home)
+          </option>
+          <option value="World Book Online - Student">
+            World Book Online (Student)
+          </option>
+          <option value="World Book Online - Timelines">
+            World Book Online (Timelines)
+          </option>
+          <option value="Naviance">Naviance Student</option>
+          <option value="PBS Learning Media">PBS Learning Media</option>
+          <option value="PBS Learning Media Student Home">
+            PBS Learning Media Student Home
+          </option>
+          <option value="Dictionary">Dictionary.com</option>
+          <option value="Thesaurus">Thesaurus.com</option>
+        </select>
+        <div id="buttonLayer">
+          <button class="key-button" value="Save" onclick="CustomIcon(); CustomName(); redirectToMainDomain();">
+            Save
+          </button>
+          <button class="key-button" value="Reset" onclick="ResetCustomCloak(); redirectToMainDomain();">
+            Reset Cloak
+          </button>
+        </div>
+      </div>
+      <div class="settings-card">
+        <h3>Set Background Image</h3>
+        <p>Change the site's background image.</p>
+        <input class="key-form" type="text" id="background-input" placeholder="Enter image URL" />
+        <button class="key-button" id="save-button">Save</button>
+        <button class="key-button" id="reset-button">Reset</button>
+      </div>
+      <div class="settings-card">
+        <h3>Search Engine</h3>
+        <p>Change the search engine when searching.</p>
+        <select title="engine" id="engine" onchange="EngineChange(this)">
+          <option value="Google">Google (Default)</option>
+          <option value="Bing">Bing</option>
+          <option value="DuckDuckGo">DuckDuckGo</option>
+          <option value="Qwant">Qwant</option>
+          <option value="Startpage">Startpage</option>
+          <option value="SearchEncrypt">SearchEncrypt</option>
+          <option value="Ecosia">Ecosia</option>
+        </select>
+        <input class="key-form" type="text" id="engine-form" placeholder="Change Search Engine" name="engine" />
+        <button class="key-button" value="Save" onclick="SaveEngine();">
+          Save
+        </button>
+      </div>
+      <div class="settings-card">
+        <h3>Choose your <an>Pro</an>xy</h3>
+        <p>
+          Ultra<an>vio</an>let is the main <an>pro</an>xy, but Dynamic is
+          faster and supports more sites. (Dynamic is still in beta, so expect
+          some bugs.)
+        </p>
+        <select id="pChange">
+          <option value="uv">Ultra<an>vio</an>let (Default)</option>
+          <option value="dy">Dynamic (Doesn't work in about:blank)</option>
+        </select>
+      </div>
+      <div class="settings-card">
+        <h3>Particles</h3>
+        <p>
+          Add the particles that are from the previous version to the new
+          site.
+        </p>
+        <label class="switch">
+          <input type="checkbox" class="slider-checkbox" id="2" />
+          <span class="slider-round"></span>
+        </label>
+      </div>
+      <div class="settings-card">
+        <h3>Themes!</h3>
+        <p>Pick from a variety of themes to customize your experience.</p>
+        <select placeholder="Solid Color Themes" id="dropdown" class="td" onchange="themeChange(this)">
+          <option disabled selected>Solid Color Themes</option>
+          <option value="d">Default</option>
+          <option value="Inverted">Inverted</option>
+          <option value="sky">Sky</option>
+          <option disabled selected>Catppuccin Themes</option>
+          <option value="catppuccinMocha">Mocha</option>
+          <option value="catppuccinMacchiato">Macchiato</option>
+          <option value="catppuccinFrappe">Frappe</option>
+          <option value="catppuccinLatte">Latte</option>
+          <option disabled selected>Custom Themes</option>
+        </select>
+      </div>
+      <div class="settings-card">
+        <h3>Save Data Management</h3>
+        <p>Export your Interstellar data on this site and import it on another site.
+          This is useful because this site might be blocked in the future,
+          but you don't want to lose your save data.
+        </p>
+        <p id="warning">Importing a save file will overwrite your current saves!</p>
+        <button class="key-button" value="Export" onclick="exportSaveData();">Export Save</button>
+        <button class="key-button" value="Import" onclick="importSaveData();">Import Save</button>
+      </div>
+      <div class="settings-card">
+        <h3>Information</h3>
+        <p>Version: v5.2.6</p>
+        <p id="last-updated">Last Updated: October 2nd, 2024</p>
+        <p>
+          Questions? Join our
+          <a href="https://discord.gg/interstellar">Discord community</a>,
+          email us at
+          <a href="mailto:hello@gointerstellar.app">hello@gointerstellar.app</a>, or
+          <a href="https://docs.gointerstellar.app/faq">check our FAQ</a>!
+        </p>
+      </div>
+    </div>
+  </div>
+  <script src="/assets/js/001.js?v=001"></script>
+  <script src="/assets/js/006.js?v=000"></script>
+  <script src="assets/js/interactive-background.js"></script>
+</body>
+
+</html>

@@ -152,14 +152,12 @@ app.use(express.static(path.join(__dirname, "static")));
 app.use("/fq", cors({ origin: true }));
 
 const routes = [
-  { path: "/yz", file: "apps.html" },
-  { path: "/up", file: "games.html" },
+  { path: "/b", file: "apps.html" },
+  { path: "/a", file: "games.html" },
   { path: "/play.html", file: "games.html" },
-  { path: "/vk", file: "settings.html" },
+  { path: "/c", file: "settings.html" },
   { path: "/rx", file: "tabs.html" },
   { path: "/", file: "index.html" },
-  { path: "/lg", file: "account.html" },
-  { path: "/dracob", file: "dracob.png" },
 ];
 
 // biome-ignore lint/complexity/noForEach:
