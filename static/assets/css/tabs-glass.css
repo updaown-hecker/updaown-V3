@@ -189,18 +189,22 @@ body {
 /* Tab Sidebar */
 .tab-sidebar {
     position: fixed;
-    top: 64px;
-    right: 0;
-    width: 280px;
-    height: calc(100vh - 64px);
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    top: 80px;
+    right: 20px;
+    width: 250px;
+    height: calc(100vh - 100px);
+    background: rgba(23, 23, 23, 0.25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     z-index: 999;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .tab-sidebar.collapsed {
@@ -212,21 +216,23 @@ body {
     left: -40px;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-right: none;
+    background: rgba(23, 23, 23, 0.25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.03);
     border-radius: 8px 0 0 8px;
     padding: 12px 8px;
-    color: #f1f5f9;
+    color: #fff;
     cursor: pointer;
     transition: all 0.3s ease;
     z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .tab-sidebar .collapse-toggle:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 136, 255, 0.15);
     transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 157, 255, 0.4);
 }
 
 .tab-sidebar .collapse-toggle svg {
@@ -242,13 +248,12 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .tab-title {
     font-size: 16px;
     font-weight: 600;
-    color: #1e293b;
+    color: #fff;
 }
 
 .add-tab-btn {
@@ -288,10 +293,8 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 12px 16px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -299,14 +302,14 @@ body {
 }
 
 .tab-item:hover {
-    background: #f1f5f9;
-    border-color: #cbd5e1;
+    background-color: rgba(0, 136, 255, 0.15);
+    border-color: rgba(0, 136, 255, 0.4);
 }
 
 .tab-item.active {
-    background: #dbeafe;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.1);
+    background-color: rgba(0, 150, 255, 0.2);
+    border-color: #00d9ff;
+    color: #00d9ff;
 }
 
 .tab-content {
@@ -318,21 +321,21 @@ body {
 }
 
 .tab-icon {
-    color: #64748b;
+    color: #fff;
     flex-shrink: 0;
 }
 
 .tab-text {
     font-size: 13px;
     font-weight: 500;
-    color: #475569;
+    color: #fff;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .tab-item.active .tab-text {
-    color: #1e40af;
+    color: #00d9ff;
 }
 
 .close-tab-btn {
