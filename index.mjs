@@ -15,6 +15,7 @@ import config from "./config.js";
 dotenv.config();
 console.log(chalk.yellow("🚀 Starting server..."));
 
+
 // File paths for data storage
 const __dirname = process.cwd();
 
@@ -90,7 +91,42 @@ app.get("/e/*", async (req, res, next) => {
 
 app.use(cookieParser());
 app.use(express.json());
+import * as crypto from 'crypto';
+
 app.use(express.urlencoded({ extended: true }));
+
+
+
+app.get('/api/data', async (req, res) => {
+    try {
+        const youtubeApiKey = process.env.YOUTUBE_API_KEY;
+        const youtubeChannelId = process.env.YOUTUBE_CHANNEL_ID;
+        const githubApiToken = process.env.GITHUB_API_TOKEN;
+        const githubUsername = process.env.GITHUB_USERNAME;
+
+        const youtubeData = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=${youtubeChannelId}&key=${youtubeApiKey}`)
+            .then(response => response.json());
+
+        const githubData = await fetch(`https://api.github.com/users/${githubUsername}`,
+            {
+                headers: {
+                    'Authorization': `token ${githubApiToken}`
+                }
+            })
+            .then(response => response.json());
+
+
+
+         res.json({
+            youtube: youtubeData,
+            github: githubData
+        });
+
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        res.status(500).json({ error: 'Failed to fetch data' });
+    }
+});
 
 app.use(express.static(path.join(__dirname, "static")));
 app.use("/fq", cors({ origin: true }));

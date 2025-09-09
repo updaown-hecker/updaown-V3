@@ -165,7 +165,6 @@
         color: #fff;
         min-height: 100vh;
       }
-      
       /* Modern Header Styles */
       .modern-header {
         background: rgba(26, 26, 46, 0.8);
@@ -342,9 +341,247 @@
           gap: 5px;
         }
       }
+      /* From Uiverse.io by mRcOol7 */
+      .tooltip-container {
+        position: relative;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 17px;
+        border-radius: 10px;
+      }
+
+      .tooltip {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s;
+        border-radius: 15px;
+        box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+          inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+          5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+      }
+
+      .profile {
+        background: #3b5998;
+        border-radius: 10px 15px;
+        padding: 10px;
+        border: 1px solid #29487d;
+      }
+
+      .tooltip-container:hover .tooltip {
+        top: -150px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .icon {
+        text-decoration: none;
+        color: #fff;
+        display: block;
+        position: relative;
+      }
+      .icon .layer {
+        width: 55px;
+        height: 55px;
+        border: 3px solid #1877f2;
+        border-radius: 50%;
+        transition: transform 0.3s, border 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 0 15px rgba(24, 119, 242, 0.7), 0 0 20px rgba(24, 119, 242, 0.5);
+      }
+
+      .icon:hover .layer {
+        transform: rotate(-35deg) skew(20deg);
+        box-shadow: 0 0 30px rgba(24, 119, 242, 1), 0 0 40px rgba(24, 119, 242, 0.7);
+      }
+
+      .layer span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        transition: all 0.3s;
+      }
+
+      .layer span,
+      .text {
+        color: #1877f2;
+        border-color: #1877f2;
+      }
+
+      .icon:hover .layer span {
+        box-shadow: -1px 1px 3px #1877f2;
+      }
+
+      .icon .text {
+        position: absolute;
+        left: 50%;
+        bottom: -5px;
+        opacity: 0;
+        font-weight: 500;
+        transform: translateX(-50%);
+        transition: bottom 0.3s ease, opacity 0.3s ease;
+      }
+
+      .icon:hover .text {
+        bottom: -35px;
+        opacity: 1;
+      }
+
+      .icon:hover .layer span:nth-child(1) {
+        opacity: 0.2;
+      }
+
+      .icon:hover .layer span:nth-child(2) {
+        opacity: 0.4;
+        transform: translate(5px, -5px);
+      }
+
+      .icon:hover .layer span:nth-child(3) {
+        opacity: 0.6;
+        transform: translate(10px, -10px);
+      }
+
+      .icon:hover .layer span:nth-child(4) {
+        opacity: 0.8;
+        transform: translate(15px, -15px);
+      }
+
+      .icon:hover .layer span:nth-child(5) {
+        opacity: 1;
+        transform: translate(20px, -20px);
+      }
+
+      .facebookSVG {
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #1877f2;
+        border-radius: 50%;
+        background: linear-gradient(
+          45deg,
+          #1877f2 0%,
+          #3b5998 25%,
+          #1877f2 50%,
+          #3b5998 75%,
+          #1877f2 100%
+        );
+      }
+
+      .user {
+        display: flex;
+        gap: 10px;
+      }
+
+      .img {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+        font-weight: 700;
+        border: 1px solid #1877f2;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+      }
+
+      .name {
+        font-size: 17px;
+        font-weight: 700;
+        color: #1877f2;
+      }
+
+      .details {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        color: #fff;
+      }
+
+      .about {
+        color: #ccc;
+        padding-top: 5px;
+      }
+
+      .instagramSVG {
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #e1306c;
+        border-radius: 50%;
+        background: linear-gradient(
+          45deg,
+          #f09433 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #bc1888 100%
+        );
+      }
+
+      .youtubeSVG {
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ff0000;
+        border-radius: 50%;
+        background: linear-gradient(
+          45deg,
+          #ff0000 0%,
+          #cc0000 25%,
+          #ff0000 50%,
+          #cc0000 75%,
+          #ff0000 100%
+        );
+      }
+
+      .githubSVG {
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #24292e;
+        border-radius: 50%;
+        background: linear-gradient(
+          45deg,
+          #24292e 0%,
+          #444d56 25%,
+          #24292e 50%,
+          #444d56 75%,
+          #24292e 100%
+        );
+      }
+      
+      /* Modern Header Styles */
+      .modern-header {
+        background: rgba(26, 26, 46, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 10px 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
     </style>
   </head>
-  <body onload="SplashT">
+  <body>
     <!-- Liquid Glass Header -->
     <header class="lg-header">
       <div class="lg-header-container">
@@ -415,16 +652,152 @@
           document.addEventListener("DOMContentLoaded", function() {
             const b64 = "VGhpcyBpcyB1cGRhb3duIFYzISBUaGUgbmV3ZXN0IHdlYnNpdGUgdGhhdCBpcyBib3RoIGNsZWFuIGFuZCBoYXMgb25lIG9mIHRoZSBiZXN0IHdvcmtpbmcgcHJveHkgdW5ibG9ja2VycyBvdXQgdGhlcmUuIFdlIGhvcGUgeW91IGVuam95IHRoZSBzaXRlIGFzIHlvdSB1c2UgaXQu";
             document.getElementById("desc").textContent = atob(b64);
-          });
+                      
+  
+    
+      });
         </script>
       </div>
       <div class="glass-socials">
-        <a href="https://www.instagram.com/benjamin.m.davie" target="_blank" rel="noopener noreferrer" class="glass-social"><svg width="32" height="32" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#fff"/><image href="assets/icons/instagram.png" x="4.5" y="4.5" width="15" height="15"/></svg></a>
-        <a href="https://www.youtube.com/@updaown" target="_blank" rel="noopener noreferrer" class="glass-social"><svg width="32" height="32" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#fff"/><image href="assets/icons/youtube.png" x="4.5" y="4.5" width="15" height="15"/></svg></a>
-        <a href="https://github.com/updaown-hecker/updaown-V3" target="_blank" rel="noopener noreferrer" class="glass-social"><svg width="32" height="32" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#fff"/><image href="assets/icons/github.png" x="4.5" y="4.5" width="15" height="15"/></svg></a>
+        <!-- Instagram -->
+        <div class="tooltip-container">
+          <div class="tooltip">
+            <div class="profile">
+              <div class="user">
+                <img class="img" src="assets/icons/instagram.png" alt="Instagram">
+                <div class="details">
+                  <div class="name">Ben Davie</div>
+                  <div class="username">@benjamin.m.davie</div>
+                </div>
+              </div>
+              <div class="about"><span>728</span> Followers</div>
+            </div>
+          </div>
+          <div class="text">
+            <a class="icon" href="https://www.instagram.com/benjamin.m.davie" target="_blank" rel="noopener noreferrer">
+              <div class="layer">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="instagramSVG" style="display: flex; justify-content: center; align-items: center;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                  </svg>
+                  </svg>
+                </span>
+              </div>
+              <div class="text">Instagram</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- YouTube -->
+        <div class="tooltip-container">
+          <div class="tooltip">
+            <div class="profile">
+              <div class="user">
+                <img class="img" src="assets/icons/youtube.png" alt="YouTube">
+                <div class="details">
+                  <div class="name">updaown</div>
+                  <div class="username">@updaown</div>
+                </div>
+              </div>
+              <div class="about"><span id="youtube-subscribers">Loading...</span> Subscribers</div>
+            </div>
+          </div>
+          <div class="text">
+            <a class="icon" href="https://www.youtube.com/@updaown" target="_blank" rel="noopener noreferrer">
+              <div class="layer">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="youtubeSVG" style="display: flex; justify-content: center; align-items: center;">
+                  <svg width="24" height="24" viewBox="0 0 40 40" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M39.7 11.7c-.4-3.1-2.9-5.5-6-5.9C30.6 5 20 5 20 5s-10.6 0-13.7.8c-3.1.4-5.5 2.9-5.9 6C.8 14.8.8 20 .8 20s0 5.2.8 8.3c.4 3.1 2.9 5.5 6 5.9 3.1.8 13.7.8 13.7.8s10.6 0 13.7-.8c3.1-.4 5.5-2.9 5.9-6 .8-3.1.8-8.3.8-8.3s0-5.2-.8-8.3zM16 26V14l10.5 6-10.5 6z" fill="#fff"></path>
+                  </svg>
+                </span>
+              </div>
+              <div class="text">YouTube</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- GitHub -->
+        <div class="tooltip-container">
+          <div class="tooltip">
+            <div class="profile">
+              <div class="user">
+                <img class="img" src="assets/icons/github.png" alt="GitHub">
+                <div class="details">
+                  <div class="name">updaown</div>
+                  <div class="username">@updaown-hecker</div>
+                </div>
+              </div>
+              <div class="about"><span id="github-repos">Loading...</span> Repositories</div>
+            </div>
+          </div>
+          <div class="text">
+            <a class="icon" href="https://github.com/updaown-hecker/updaown-V3" target="_blank" rel="noopener noreferrer">
+              <div class="layer">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="githubSVG" style="display: flex; justify-content: center; align-items: center;">
+                  <svg width="24" height="24" viewBox="0 0 40 40" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 0C8.95 0 0 8.95 0 20c0 8.84 5.73 16.32 13.68 18.99.99.18 1.35-.43 1.35-.96 0-.47-.02-1.72-.03-3.37-5.57 1.21-6.75-2.69-6.75-2.69-.91-2.32-2.22-2.94-2.22-2.94-1.82-1.24.14-1.22.14-1.22 2.01.14 3.07 2.07 3.07 2.07 1.79 3.07 4.7 2.18 5.83 1.67.18-1.3.7-2.18 1.27-2.68-4.44-.5-9.1-2.22-9.1-9.88 0-2.18.78-3.97 2.07-5.37-.21-.5-.9-2.54.2-5.3 0 0 1.69-.54 5.54 2.06 1.6-.44 3.3-.66 5-.66 1.7 0 3.4.22 5 .66 3.85-2.6 5.54-2.06 5.54-2.06 1.1 2.76.41 4.8.2 5.3 1.29 1.4 2.07 3.19 2.07 5.37 0 7.68-4.66 9.37-9.13 9.87.72.62 1.34 1.85 1.34 3.74 0 2.68-.02 4.84-.02 5.5c0 .53.36 1.15 1.36.96C34.27 36.32 40 28.84 40 20 40 8.95 31.05 0 20 0z" fill="#fff"></path>
+                  </svg>
+                </span>
+              </div>
+              <div class="text">GitHub</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="./api_script.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', async () => {
+        updateSocialData();
+      });
+
+      async function updateSocialData() {
+        // Update YouTube Subscribers
+        const youtubeData = await getYouTubeChannelData();
+        if (youtubeData && youtubeData.items && youtubeData.items.length > 0 && youtubeData.items[0].statistics && youtubeData.items[0].statistics.subscriberCount) {
+          document.getElementById('youtube-subscribers').textContent = youtubeData.items[0].statistics.subscriberCount;
+        } else {
+          document.getElementById('youtube-subscribers').textContent = 'Loading...';
+        }
+
+        // Update GitHub Repositories
+        const githubData = await getGitHubUserData();
+        if (githubData && githubData.public_repos) {
+          document.getElementById('github-repos').textContent = githubData.public_repos;
+        } else {
+          document.getElementById('github-repos').textContent = 'Loading...';
+        }
+      }
+
+      updateSocialData();
+    </script>
+
+  </body>
+</html>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
     <!-- Core logic -->
+    <style>
+      .tooltip-container .tooltip {
+        background-color: #333;
+      }
+    </style>
     <script src="assets/js/index.js?v=46"></script>
     <script src="./assets/ultra/bundle.js?v=9-30-2024"></script>
     <script src="./assets/ultra/config.js?v=9-30-2024"></script>
